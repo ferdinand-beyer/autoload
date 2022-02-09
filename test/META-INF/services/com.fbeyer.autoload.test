@@ -1,0 +1,6 @@
+# Example services file
+first-provider
+second-provider # inline comment
+
+#disabled-provider
+    third-provider

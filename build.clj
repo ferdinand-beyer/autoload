@@ -5,7 +5,7 @@
             [org.corfield.build :as bb]))
 
 (def lib 'com.fbeyer/autoload)
-(def base-version "0.0")
+(def base-version "0.1")
 
 (defn- git [& args]
   (let [{:keys [exit out]}
