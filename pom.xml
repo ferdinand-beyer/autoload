@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>GROUP</groupId>
+  <artifactId>ARTIFACT</artifactId>
+  <version>VERSION</version>
+  <name>NAME</name>
+  <description>Automatically load namespaces from the classpath.</description>
+  <url>https://github.com/ferdinand-beyer/autoload</url>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Ferdinand Beyer</name>
+    </developer>
+  </developers>
+  <scm>
+    <url>https://github.com/ferdinand-beyer/autoload</url>
+    <connection>scm:git:git://github.com/ferdinand-beyer/autoload.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/ferdinand-beyer/autoload.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+</project>
