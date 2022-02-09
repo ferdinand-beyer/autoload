@@ -24,6 +24,9 @@ jobs:
         uses: DeLaGuardo/setup-clojure@3.2
         with:
           cli: 1.10.3.1075
+      
+      - name: Prepare Classpath
+        run: clojure -A:build:test -P
 
       - name: Build Jar
         run: clojure -T:build ci
