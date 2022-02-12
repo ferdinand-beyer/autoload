@@ -4,7 +4,9 @@
 
 ;; TODO: Error handling, e.g. parse errors
 ;; We could use dynamic vars and bind context information, e.g. the current
-;; resource and line number.
+;; resource and line number.  We could also install an error handler this way,
+;; and provide a convenient way of installing it, e.g. passing opts to API
+;; functions.
 
 (defn- map-reader
   "A transducer that maps inputs with a reader."
@@ -44,10 +46,13 @@
                   (keep parse-service-line))
             (resources (str "META-INF/services/" name))))
 
+;; TODO: Support "merge with" and "value readers", e.g. split by comma into vectors
 (defn properties
   "Reads all Java properties files with the given name on the classpath."
   [name]
   (into {} (comp map-reader (mapcat read-properties)) (resources name)))
+
+(into {} )
 
 ;; TODO: test this!
 ;; FIXME: Would autorequire be a better name?
@@ -58,10 +63,21 @@
    files."
   ([] (autoload "com.fbeyer.autoload"))
   ([name]
-   (doseq [sym (services name)]
-     (require sym))))
+   (run! require (services name))))
 
 ;; TODO: test this!
 ;; Could combine our map here with the transducer used by services.
 (defn autoresolve [name]
   (map requiring-resolve (services name)))
+
+;; TODO: Support EDN streams
+;; Wrap readers into java.io.PushbackReader, and use clojure.edn/read
+;; to iterate over objects.  Streaming allows to concatenate files when
+;; building uberjars; we could still collect them into a collection using
+;; into or (apply merge).  Pass through :readers and :default
+;; Use a sentinel for :eof (e.g. ::eof)
+(defn edn
+  "opts is a map that can include the following keys:
+   :readers - passed to clojure.edn/read
+   :default - passed to clojure.edn/read"
+  [name opts])
