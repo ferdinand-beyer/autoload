@@ -15,7 +15,7 @@ Available from [Clojars][clojars].
 ## License
 
 Distributed under the [MIT License].  
-Copyright &copy; 2021 [Ferdinand Beyer]
+Copyright &copy; 2022 [Ferdinand Beyer]
 
 [clojars]: https://clojars.org/com.fbeyer/autoload
 [cljdoc]: https://cljdoc.org/jump/release/com.fbeyer/autoload
