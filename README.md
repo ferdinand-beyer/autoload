@@ -3,7 +3,7 @@
 [![Clojars Project](https://img.shields.io/clojars/v/com.fbeyer/autoload.svg)][clojars]
 [![](https://cljdoc.org/badge/com.fbeyer/autoload)][cljdoc]
 
-A Clojure Library to automatically load namespaces from the classpath.
+A tiny Clojure Library to automatically load namespaces from the classpath.
 
 ## Documentation
 

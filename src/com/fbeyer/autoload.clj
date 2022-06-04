@@ -52,32 +52,10 @@
   [name]
   (into {} (comp map-reader (mapcat read-properties)) (resources name)))
 
-(into {} )
-
 ;; TODO: test this!
-;; FIXME: Would autorequire be a better name?
-;; Does it make sense to return the loaded namespaces, similar to
-;; tools.namespace/refresh?
 (defn autoload
-  "Automatically requires namespaces defined in META-INF/services/com.fbeyer.autoload
-   files."
+  "Automatically requires namespaces defined in `META-INF/services/com.fbeyer.autoload`
+   files, or the custom `name` within `META-INF/services`."
   ([] (autoload "com.fbeyer.autoload"))
   ([name]
    (run! require (services name))))
-
-;; TODO: test this!
-;; Could combine our map here with the transducer used by services.
-(defn autoresolve [name]
-  (map requiring-resolve (services name)))
-
-;; TODO: Support EDN streams
-;; Wrap readers into java.io.PushbackReader, and use clojure.edn/read
-;; to iterate over objects.  Streaming allows to concatenate files when
-;; building uberjars; we could still collect them into a collection using
-;; into or (apply merge).  Pass through :readers and :default
-;; Use a sentinel for :eof (e.g. ::eof)
-(defn edn
-  "opts is a map that can include the following keys:
-   :readers - passed to clojure.edn/read
-   :default - passed to clojure.edn/read"
-  [name opts])
